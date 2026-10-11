@@ -15,6 +15,9 @@ export default function Home() {
       <div className="hero rounded-2xl my-15 bg-base-200 py-20">
         <div className="hero-content flex-col lg:flex-row">
           <div>
+            <p className="py-6 uppercase text-primary">
+              WORKOUTS Library
+            </p>
             <h1 className="text-5xl font-bold">
               TRAIN WITH INTENT. LOG <br />
               EVERY SET.
@@ -26,7 +29,8 @@ export default function Home() {
             </p>
 
             <button className="btn btn-primary">
-              BROWSE WORKOUTS
+              <Link href={`./products/`}>BROWSE WORKOUTS</Link>
+              
             </button>
           </div>
 
@@ -40,7 +44,7 @@ export default function Home() {
       </div>
 
       <div className="my-20">
-        <h1 className="uppercase text-5xl">The Library</h1>
+        <h1 className="uppercase text-5xl">Top 6 Exercise</h1>
         <p>Twelve lifts covering every major muscle group.</p>
 
         <div className="Cards my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

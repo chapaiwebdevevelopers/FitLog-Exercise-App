@@ -1,3 +1,4 @@
+import { productContext } from '@/context/Context';
 import { Iproducts } from '@/types/products.type';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,9 +8,17 @@ import { GiCheckMark } from 'react-icons/gi';
 import { ImPower } from 'react-icons/im';
 import { RxCross1 } from 'react-icons/rx';
 
+
 const RowCard = ({product}:{product:Iproducts}) => {
+
     const {id,name,image,muscleGroups,equipment,description,duration,caloriesBurned,rating} = product;
-    console.log(product);
+        // remove item from the Plan
+        const { addPlan,setAddPlan, laterPlan } = React.useContext(productContext);
+    const handleRemoveProduct = ()=>{
+          const restPlan = addPlan.filter((single:Iproducts)=> single.id !== product.id)
+          setAddPlan(restPlan);
+    }
+    // console.log(product);
     return (
         <div className='border border-gray-300 rounded-xl p-3 flex justify-between items-center'>
             <div className='flex gap-10'>
@@ -26,8 +35,11 @@ const RowCard = ({product}:{product:Iproducts}) => {
             </div>
             <div className='mx-3 space-x-4'>
                 <Link href={`/products/${id}`}><button className="btn rounded-xl">View Details</button></Link>
+   
+
+              
                 <button className="btn rounded-xl"> <GiCheckMark />Mark as Done</button>
-                <button><RxCross1 /></button>
+                <button className='btn' onClick={()=>handleRemoveProduct()}><RxCross1 /></button>
             </div>
            
 

@@ -77,7 +77,7 @@ const SingleProductDetails = async ({ params }) => {
                         <h3 className="uppercase text-3xl">Instruction</h3>
                         <ul className="mx-4">
                         {
-                            instructions.map((single:string,index:number)=> <li   key={index}>{single}</li>)
+                            instructions.map((single:string,index:number)=> <li className="list-decimal"  key={index}>{single}</li>)
                         }
                         </ul>
 
