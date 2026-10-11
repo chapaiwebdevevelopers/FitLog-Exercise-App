@@ -5,16 +5,18 @@ import React, { useContext } from 'react';
 import Logo from '../../public/logo.png'
 import { productContext } from '@/context/Context';
 import { Iproducts } from '@/types/products.type';
+import { usePathname } from 'next/navigation';
 
  
 const Navbar = () => {
+  const pathName= usePathname()
  const {addPlan,laterPlan} = useContext(productContext)
 
     const NavLinks = <>
-         <li> <Link href="/"> Home </Link> </li>
-         <li> <Link href="/my-plan"> Workout </Link> </li>
-         <li> <Link href="/my-plan"> My Plan </Link> </li>
-         <li> <Link href="/products"> Exercises </Link> </li>
+         <li  > <Link className={pathName==='/'? "navcolor":""} href="/"> Home </Link> </li>
+         <li> <Link className={pathName==='/my-plan'? "navcolor":""} href="/my-plan"> My Plan </Link> </li>
+         <li> <Link className={pathName==='/my-plan'? "navcolor":""} href="/my-plan"> Saved </Link> </li>
+         <li> <Link className={pathName==='/products'? "navcolor":""} href="/products"> Exercises </Link> </li>
     </>
     
     
@@ -47,8 +49,8 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end space-x-2">
-    <div className="badge badge-ghost">Plan <span className='px-3 py-1 bg-primary rounded-2xl text-white'>{addPlan.length}</span></div>
-    <div className="badge badge-ghost">Saved <span className='px-3 py-1 bg-primary rounded-2xl text-white' >{laterPlan.length}</span></div>
+    <div className="badge badge-ghost px-2 py-4 ">Plan <span className='px-2 py-1 bg-primary rounded-2xl text-white'>{addPlan.length}</span></div>
+    <div className="badge badge-ghost px-2 py-4">Saved <span className='px-2 py-1  rounded-2xl border border-gray-300' >{laterPlan.length}</span></div>
   </div>
 </div>
         </div>

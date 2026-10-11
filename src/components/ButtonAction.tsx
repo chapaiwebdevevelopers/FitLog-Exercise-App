@@ -2,6 +2,9 @@
 import { productContext } from '@/context/Context';
 import { Iproducts } from '@/types/products.type';
 import React, { useContext } from 'react';
+import { CgPentagonUp } from 'react-icons/cg';
+import { SlCalender } from 'react-icons/sl';
+import { TfiTag } from 'react-icons/tfi';
 import { Bounce, toast } from 'react-toastify';
 
 const ButtonAction = ({product}:{product:Iproducts}) => {
@@ -75,10 +78,10 @@ const ButtonAction = ({product}:{product:Iproducts}) => {
         <div>
                                 <div className="card-actions ">
                         <button onClick={()=>handleTodayPlan()} className="btn btn-primary">
-                            Add to todays plan
+                            <SlCalender />Add to todays plan
                         </button>
                         <button onClick={()=>handleSaveLater()} className="btn btn-secondary">
-                            Save for later
+                            <TfiTag />Save for later
                         </button>
                     </div>
         </div>

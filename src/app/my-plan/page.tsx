@@ -5,7 +5,8 @@ import SavedPlanCard from '@/components/SavedPlanCard';
 import TodayPlanCard from '@/components/TodayPlanCard';
 import { productContext } from '@/context/Context';
 import { Iproducts } from '@/types/products.type';
-import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import React, { Suspense, useEffect, useState } from 'react';
 
 const MyPlanPage = () => {
     const { addPlan, laterPlan } = React.useContext(productContext);
@@ -39,11 +40,24 @@ const MyPlanPage = () => {
         handleTodayPlanSummary(addPlan);
     }, [addPlan]);
 
-
+ const noProductNotice = <>
+                            <div className="card bg-base-100 shadow-sm mt-20">
+                                <div className="card-body items-center text-center">
+                                    <h2 className="card-title">NOTHING HERE YET</h2>
+                                    <p>Browse the library and add a lift to get today moving.</p>
+                                    <div className="card-actions">
+                                    <Link href="./"> <button className="btn btn-primary">Go to workouts</button> </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </>
+                            
+ 
 
 
    
     return (
+        
         <div>
             <h1 className="text-5xl uppercase">My Plan</h1>
 
@@ -87,12 +101,22 @@ const MyPlanPage = () => {
                 />
 
                 <div className="tab-content bg-base-100 p-10 space-y-3">
-                    {addPlan.map((product: Iproducts) => (
-                        <TodayPlanCard
-                            key={product.id}
-                            product={product}
-                        />
-                    ))}
+                    <Suspense fallback="<p>Loading workouts…</p>">
+                    {
+                        addPlan.length >0 ? (
+                        addPlan.map((product: Iproducts) => (
+                            <TodayPlanCard
+                             key={product.id}
+                                product={product}
+                            />
+                        ))) : 
+                            noProductNotice
+                        
+                    }
+                        
+
+                    </Suspense>
+
                 </div>
 
                 {/* Saved Tab */}
@@ -106,12 +130,17 @@ const MyPlanPage = () => {
                 />
 
                 <div className="tab-content bg-base-100 p-10 space-y-3">
-                    {laterPlan.map((product: Iproducts) => (
-                        <SavedPlanCard
+
+                    <Suspense fallback="<p>Loading workouts…</p>">
+                    
+                        { laterPlan.length >0 ? laterPlan.map((product: Iproducts) => (
+                            <SavedPlanCard
                             key={product.id}
                             product={product}
-                        />
-                    ))}
+                            />
+                        )):noProductNotice}
+                    </Suspense>
+
                 </div>
 
             </div>

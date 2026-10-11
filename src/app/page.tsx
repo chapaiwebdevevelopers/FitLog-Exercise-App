@@ -29,7 +29,7 @@ export default function Home() {
             </p>
 
             <button className="btn btn-primary">
-              <Link href={`./products/`}>BROWSE WORKOUTS</Link>
+              <a href='#library'>BROWSE WORKOUTS</a>
               
             </button>
           </div>
@@ -43,12 +43,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="my-20">
-        <h1 className="uppercase text-5xl">Top 6 Exercise</h1>
+      <div id="library"className="my-20">
+        <h1 className="uppercase text-5xl">THE LIBRARY</h1>
         <p>Twelve lifts covering every major muscle group.</p>
 
         <div className="Cards my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {products.slice(0,6).map((product) => (
+          {products.map((product) => (
             <SingleCardDetails
               key={product.id}
               product={product}

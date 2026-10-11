@@ -46,24 +46,31 @@ const SingleProductDetails = async ({ params }) => {
                                     </tr>
                                     {/* row 3 */}
                                     <tr>
-                                        <td>duration</td>
-                                        <td>{duration}</td>
-                                    </tr>
-                                    {/* row 4 */}
-                                    <tr>
-                                        <td>caloriesBurned</td>
-                                        <td>{caloriesBurned}</td>
-                                    </tr>
-                                    {/* row 5 */}
-                                    <tr>
                                         <td>sets</td>
                                         <td>{sets}</td>
-                                    </tr>
-                                    {/* row 6 */}
+                                        </tr>
+
+                                    {/* row 4 */}
+                                                                        
+                                    
                                     <tr>
                                         <td>reps</td>
                                         <td>{reps}</td>
                                     </tr>
+
+
+                                    {/* row 5 */}
+                                    <tr>
+                                        <td>duration</td>
+                                        <td>{duration}</td>
+                                    </tr>
+                                    {/* row 6 */}
+                                    <tr>
+                                        <td>caloriesBurned</td>
+                                        <td>{caloriesBurned}</td>
+                                    </tr>
+
+
                                     {/* row 7 */}
                                     <tr>
                                         <td>rating</td>
