@@ -1,5 +1,5 @@
 'use client'
-import RowCard from '@/components/RowCard';
+import RowCard from '@/components/SavedPlanCard';
 import { productContext } from '@/context/Context';
 import { Iproducts } from '@/types/products.type';
 import React, { useContext } from 'react';

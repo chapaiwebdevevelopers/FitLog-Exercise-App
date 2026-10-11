@@ -7,9 +7,10 @@ import { FaRegClock, FaRegStar } from 'react-icons/fa';
 import { GiCheckMark } from 'react-icons/gi';
 import { ImPower } from 'react-icons/im';
 import { RxCross1 } from 'react-icons/rx';
+import { Bounce, toast } from 'react-toastify';
 
 
-const RowCard = ({product}:{product:Iproducts}) => {
+const TodayPlanCard = ({product}:{product:Iproducts}) => {
 
     const {id,name,image,muscleGroups,equipment,description,duration,caloriesBurned,rating} = product;
         // remove item from the Plan
@@ -17,6 +18,32 @@ const RowCard = ({product}:{product:Iproducts}) => {
     const handleRemoveProduct = ()=>{
           const restPlan = addPlan.filter((single:Iproducts)=> single.id !== product.id)
           setAddPlan(restPlan);
+          toast.success('Removed item from Today Plan', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
+    }
+    const handleMarkDone = ()=>{
+        const restPlan = addPlan.filter((single:Iproducts)=> single.id !== product.id)
+          setAddPlan(restPlan);
+          toast.success('Mark as Done', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
     }
     // console.log(product);
     return (
@@ -38,7 +65,7 @@ const RowCard = ({product}:{product:Iproducts}) => {
    
 
               
-                <button className="btn rounded-xl"> <GiCheckMark />Mark as Done</button>
+                <button className="btn rounded-xl" onClick={()=>handleMarkDone()}> <GiCheckMark />Mark as Done</button>
                 <button className='btn' onClick={()=>handleRemoveProduct()}><RxCross1 /></button>
             </div>
            
@@ -47,4 +74,4 @@ const RowCard = ({product}:{product:Iproducts}) => {
     );
 };
 
-export default RowCard;
+export default TodayPlanCard;

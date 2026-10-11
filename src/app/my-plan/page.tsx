@@ -1,7 +1,8 @@
 
 'use client';
 
-import RowCard from '@/components/RowCard';
+import SavedPlanCard from '@/components/SavedPlanCard';
+import TodayPlanCard from '@/components/TodayPlanCard';
 import { productContext } from '@/context/Context';
 import { Iproducts } from '@/types/products.type';
 import React, { useEffect, useState } from 'react';
@@ -87,7 +88,7 @@ const MyPlanPage = () => {
 
                 <div className="tab-content bg-base-100 p-10 space-y-3">
                     {addPlan.map((product: Iproducts) => (
-                        <RowCard
+                        <TodayPlanCard
                             key={product.id}
                             product={product}
                         />
@@ -106,7 +107,7 @@ const MyPlanPage = () => {
 
                 <div className="tab-content bg-base-100 p-10 space-y-3">
                     {laterPlan.map((product: Iproducts) => (
-                        <RowCard
+                        <SavedPlanCard
                             key={product.id}
                             product={product}
                         />

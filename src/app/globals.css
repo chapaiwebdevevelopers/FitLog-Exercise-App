@@ -1,2 +1,16 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+:root{
+   --color-primary: #C2F10D;
+   --color-secondary:black;
+ /* --color-primary-content */
+
+}
+.btn-primary{
+    color:var(--color-secondary);
+}
+.badge  {
+    color:var(--color-secondary) !important;
+}

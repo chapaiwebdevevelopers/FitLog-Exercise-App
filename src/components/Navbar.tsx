@@ -1,9 +1,14 @@
+'use client'
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 import Logo from '../../public/logo.png'
+import { productContext } from '@/context/Context';
+import { Iproducts } from '@/types/products.type';
 
+ 
 const Navbar = () => {
+ const {addPlan,laterPlan} = useContext(productContext)
 
     const NavLinks = <>
          <li> <Link href="/"> Home </Link> </li>
@@ -41,9 +46,9 @@ const Navbar = () => {
       {NavLinks}
     </ul>
   </div>
-  <div className="navbar-end">
-    <div className="badge badge-ghost">ghost <span>0</span></div>
-    <div className="badge badge-ghost">ghost</div>
+  <div className="navbar-end space-x-2">
+    <div className="badge badge-ghost">Plan <span className='px-3 py-1 bg-primary rounded-2xl text-white'>{addPlan.length}</span></div>
+    <div className="badge badge-ghost">Saved <span className='px-3 py-1 bg-primary rounded-2xl text-white' >{laterPlan.length}</span></div>
   </div>
 </div>
         </div>
