@@ -10,9 +10,11 @@ const getData =async()=> {
    const response = await fetch(`https://api.api-store.workers.dev/api/fitlog`);
    return response.json()
 }
-const SingleProductDetails = async ({ params }) => {
+const SingleProductDetails = async ({ params }:{
+  params: Promise<{ productId: string }>;
+}) => {
     const products = await getData()
-    const { productId } = await params;
+    const { productId} = await params;
     // const products = data;
     const product = products.find(
         (product:Iproducts) => String(product.id) === String(productId),

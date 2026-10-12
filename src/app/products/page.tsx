@@ -1,6 +1,6 @@
 import SingleCardDetails from '@/components/SingleCard';
 import { Iproducts } from '@/types/products.type';
-import data from "/public/data.json";
+// import data from "/public/data.json";
 import React from 'react';
 
 const getData =async()=> {
@@ -8,7 +8,7 @@ const getData =async()=> {
    return response.json()
 }
 const ProductsPage = async() => {
-      const products = await getData()
+      const products:Iproducts[] = await getData()
       // const products: Iproducts[] = data;
     return (
         <div className="my-20">
