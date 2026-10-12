@@ -3,8 +3,13 @@ import { Iproducts } from '@/types/products.type';
 import data from "/public/data.json";
 import React from 'react';
 
-const ProductsPage = () => {
-      const products: Iproducts[] = data;
+const getData =async()=> {
+   const response = await fetch(`https://api.api-store.workers.dev/api/fitlog`);
+   return response.json()
+}
+const ProductsPage = async() => {
+      const products = await getData()
+      // const products: Iproducts[] = data;
     return (
         <div className="my-20">
         <h1 className="uppercase text-5xl">All Types of Gym</h1>

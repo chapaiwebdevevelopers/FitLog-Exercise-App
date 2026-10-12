@@ -5,9 +5,15 @@ import SingleCardDetails from "@/components/SingleCard";
 import { Iproducts } from "@/types/products.type";
 import data from "../../public/data.json";
 import Link from "next/link";
+const getData =async()=> {
+   const response = await fetch(`https://api.api-store.workers.dev/api/fitlog`);
+   return response.json()
+}
 
-export default function Home() {
-  const products: Iproducts[] = data;
+export default async function Home() {
+ const products = await getData()
+  // const products: Iproducts[] = data;
+
   // console.log("Product",products)
 
   return (

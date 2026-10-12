@@ -1,14 +1,19 @@
 
 import React from "react";
-import data from "/public/data.json";
+// import data from "/public/data.json";
 import Image from "next/image";
 import { Iproducts } from "@/types/products.type";
 import ButtonAction from "@/components/ButtonAction";
 
-const SingleProductDetails = async ({ params }) => {
 
+const getData =async()=> {
+   const response = await fetch(`https://api.api-store.workers.dev/api/fitlog`);
+   return response.json()
+}
+const SingleProductDetails = async ({ params }) => {
+    const products = await getData()
     const { productId } = await params;
-    const products = data;
+    // const products = data;
     const product = products.find(
         (product:Iproducts) => String(product.id) === String(productId),
     );
